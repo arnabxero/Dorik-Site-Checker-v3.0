@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Dorik Site Checker",
+    "version": "3.0",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs",
+        "webRequest",
+        "storage"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/download.png",
+            "48": "icons/download.png",
+            "128": "icons/download.png"
+        }
+    },
+    "icons": {
+        "16": "icons/download.png",
+        "48": "icons/download.png",
+        "128": "icons/download.png"
+    }
+}

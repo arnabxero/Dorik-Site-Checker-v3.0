@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dorik Site Checker</title>
+    <style>
+        body {
+            text-align: center;
+            min-width: 300px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .title {
+            font-size: large;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
+
+        .scanbtn {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: medium;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .scanbtn:hover {
+            background-color: #0056b3;
+        }
+
+        .accordion {
+            border: 1px solid #959697;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom: none;
+            border-left: 0px;
+            border-right: 0px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+            position: relative;
+            /* Needed for absolute positioning of the arrow */
+
+        }
+
+        .accordion::after {
+
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            /* Center the arrow vertically */
+            background-image: url('/icons/arrow.png');
+            background-size: cover;
+            width: 16px;
+            /* Width of the arrow image */
+            height: 16px;
+            /* Height of the arrow image */
+            transition: transform 0.3s ease;
+        }
+
+        .active::after {
+            transform: translateY(-50%) rotate(180deg);
+            /* Rotate arrow when active */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .display {
+            text-align: left;
+            font-size: small;
+            border-radius: 5px;
+
+        }
+
+        .panelShort {
+            margin-top: 10px;
+            font-size: small;
+            padding-top: 3px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #0056b3;
+        }
+
+        .shortResult {
+            font-size: medium;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/icons/download.png" height="50" />
+    <div class="title">Is it a Dorik Site?</div>
+
+
+    <button id="scanBtn" class="scanbtn">Scan This Site</button>
+
+    <div class="panelShort">
+        <div class="shortResult display" id="shortResult">Something Went Wrong</div>
+
+        <button class="accordion">Detailed Result</button>
+        <div class="panel display">
+            <p>
+                <span>Probability of Being Dorik:</span>
+                <span id="probability" style="font-weight: bold; color: red;">Not Scanned
+                    Yet
+                </span>
+            </p>
+            <p>
+                <span>Total Dorik Classes:</span>
+                <span id="classCount" style="font-weight: bold; color: red;">Not Scanned
+                    Yet
+                </span>
+            </p>
+            <p>
+                <span>Total Dorik URL:</span>
+                <span id="cdnCount" style="font-weight: bold; color: red;">Not Scanned
+                    Yet
+                </span>
+            </p>
+            <p>
+                <span>Site IP:</span>
+                <span id="IPCheck" style="font-weight: bold; color: red;">Not Scanned
+                    Yet
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+    <script src="ui-script.js"></script>
+</body>
+
+</html>
